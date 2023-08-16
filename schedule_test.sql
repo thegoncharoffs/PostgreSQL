@@ -1,8 +1,8 @@
--- Active: 1692175748769@@127.0.0.1@5433@scheduletest@public
+-- Active: 1692189753439@@127.0.0.1@5432@test
 
 -- PRODUCT --
 CREATE TABLE product(  
-    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     create_time DATE,
     name VARCHAR(255)
 );
@@ -67,7 +67,7 @@ REFRESH MATERIALIZED VIEW order_report;
 CREATE EXTENSION pg_cron;
 select * from cron.job_run_details order by start_time;
 select * from cron.job;
-SELECT cron.schedule('update-order-view', '30 seconds', 'REFRESH MATERIALIZED VIEW order_report'); 
+SELECT cron.schИнedule('update-order-view', '30 seconds', 'REFRESH MATERIALIZED VIEW order_report'); 
 select cron.unschedule(1);
 DELETE FROM cron.job_run_details;
 
